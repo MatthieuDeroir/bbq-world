@@ -1,0 +1,138 @@
+@import "tailwindcss";
+@import 'leaflet/dist/leaflet.css';
+
+@theme {
+  /* Couleurs barbecue */
+  --color-fire-50: #fff7ed;
+  --color-fire-100: #ffedd5;
+  --color-fire-200: #fed7aa;
+  --color-fire-300: #fdba74;
+  --color-fire-400: #fb923c;
+  --color-fire-500: #f97316;
+  --color-fire-600: #ea580c;
+  --color-fire-700: #c2410c;
+  --color-fire-800: #9a3412;
+  --color-fire-900: #7c2d12;
+
+  --color-ember-50: #fef2f2;
+  --color-ember-100: #fee2e2;
+  --color-ember-200: #fecaca;
+  --color-ember-300: #fca5a5;
+  --color-ember-400: #f87171;
+  --color-ember-500: #ef4444;
+  --color-ember-600: #dc2626;
+  --color-ember-700: #b91c1c;
+  --color-ember-800: #991b1b;
+  --color-ember-900: #7f1d1d;
+
+  --color-smoke-50: #fafafa;
+  --color-smoke-100: #f4f4f5;
+  --color-smoke-200: #e4e4e7;
+  --color-smoke-300: #d4d4d8;
+  --color-smoke-400: #a1a1aa;
+  --color-smoke-500: #71717a;
+  --color-smoke-600: #52525b;
+  --color-smoke-700: #3f3f46;
+  --color-smoke-800: #27272a;
+  --color-smoke-900: #18181b;
+
+  /* Variables thème sombre */
+  --color-background: #18181b;
+  --color-foreground: #fafafa;
+  --color-card: #27272a;
+  --color-card-foreground: #fafafa;
+  --color-popover: #27272a;
+  --color-popover-foreground: #fafafa;
+  --color-primary: #f97316;
+  --color-primary-foreground: #fafafa;
+  --color-secondary: #3f3f46;
+  --color-secondary-foreground: #fafafa;
+  --color-muted: #3f3f46;
+  --color-muted-foreground: #a1a1aa;
+  --color-accent: #ea580c;
+  --color-accent-foreground: #fafafa;
+  --color-destructive: #dc2626;
+  --color-destructive-foreground: #fee2e2;
+  --color-border: #3f3f46;
+  --color-input: #3f3f46;
+  --color-ring: #f97316;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+}
+
+/* Leaflet dark theme */
+.leaflet-container {
+  background: var(--color-background);
+  color: var(--color-foreground);
+}
+
+.leaflet-popup-content-wrapper {
+  background: var(--color-card);
+  color: var(--color-card-foreground);
+}
+
+.leaflet-popup-tip {
+  background: var(--color-card);
+}
+
+.leaflet-control-zoom a {
+  background: var(--color-card);
+  color: var(--color-card-foreground);
+  border-color: var(--color-border);
+}
+
+.leaflet-control-zoom a:hover {
+  background: var(--color-accent);
+  color: var(--color-accent-foreground);
+}
+
+.leaflet-control-attribution {
+  background: var(--color-card);
+  color: var(--color-muted-foreground);
+}
+
+/* Animations barbecue */
+@keyframes ember-glow {
+  0%, 100% { box-shadow: 0 0 5px var(--color-accent); }
+  50% { box-shadow: 0 0 20px var(--color-accent), 0 0 30px var(--color-accent); }
+}
+
+@keyframes flame {
+  0%, 100% { transform: scaleY(1) rotate(0deg); }
+  50% { transform: scaleY(1.1) rotate(2deg); }
+}
+
+.ember-glow {
+  animation: ember-glow 2s ease-in-out infinite;
+}
+
+.animate-flame {
+  animation: flame 2s ease-in-out infinite;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
